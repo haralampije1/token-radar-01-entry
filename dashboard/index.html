@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token Radar — Pre-Token Protocol Valuation</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <h1>Token Radar</h1>
+    <p class="subtitle">Pre-Token Protocol Implied Valuation & Farm Guide</p>
+    <div class="meta">
+      <span id="modelVersion"></span>
+      <span id="asOf"></span>
+      <span id="watchlistSize"></span>
+    </div>
+  </header>
+
+  <main>
+    <div class="controls">
+      <div class="search-box">
+        <input type="search" id="search" placeholder="Search protocols..." aria-label="Search protocols">
+        <span class="search-icon">🔍</span>
+      </div>
+      <div class="filter-group">
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="">All Categories</option>
+        </select>
+        <select id="chainFilter" aria-label="Filter by chain">
+          <option value="">All Chains</option>
+        </select>
+        <select id="sortBy" aria-label="Sort by">
+          <option value="rank">Rank (Implied Value)</option>
+          <option value="tvl">TVL (High to Low)</option>
+          <option value="growth">7d Growth</option>
+          <option value="age">Protocol Age</option>
+          <option value="quality">Quality Score</option>
+        </select>
+      </div>
+      <div class="view-toggle">
+        <button id="viewBoard" class="active" aria-pressed="true">Board</button>
+        <button id="viewLive" aria-pressed="false">Live Tokens</button>
+      </div>
+    </div>
+
+    <div id="stats" class="stats-bar"></div>
+
+    <table id="board">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Protocol</th>
+          <th scope="col">Category</th>
+          <th scope="col">Chains</th>
+          <th scope="col">TVL</th>
+          <th scope="col">7d Δ</th>
+          <th scope="col">Age</th>
+          <th scope="col">Implied Value</th>
+          <th scope="col">Quality</th>
+          <th scope="col">Farm Plan</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div id="detail" class="detail-panel" hidden>
+      <button class="close-detail" aria-label="Close detail">×</button>
+      <div class="detail-content"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Data from <a href="https://defillama.com" target="_blank" rel="noopener">DefiLlama</a> · Model: <span id="footerModel"></span> · Not financial advice</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
